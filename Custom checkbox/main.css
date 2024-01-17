@@ -1,0 +1,42 @@
+.custom{
+    --width: 40px; 
+    --height:calc(var(--width) / 2);
+    --border-radius:calc(var(--height) / 2);
+
+    display: inline-block;
+    cursor: pointer;
+}
+
+.custom__input{
+display: none;
+}
+
+.custom__fill{
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background: #dddddd;
+    transition: background 0.2s;
+}
+.custom__input:checked ~ .custom__fill{
+    background: #009578;
+    
+}
+.custom__fill::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--height);
+    width: var(--width);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s;
+
+}
+.custom__input:checked ~ .custom__fill::after{
+    transform: translateX(var(--height));
+
+}
